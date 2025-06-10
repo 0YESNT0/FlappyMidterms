@@ -385,4 +385,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  despawnOnXLimit: 0
+  despawnOnXLimit: 5

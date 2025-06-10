@@ -29,7 +29,7 @@ public class BirbScript : MonoBehaviour
         //touch detection
         if(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count <= 0) return;
         if(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches[0].began){
-            Debug.Log("Touch Detected");
+            //Debug.Log("Touch Detected");
             Jump();
             if(isStarted == false){
                 isStarted = true;
@@ -41,7 +41,7 @@ public class BirbScript : MonoBehaviour
     }
 
     private void Jump(){
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         Vector2 force = new Vector2(0,JumpPower);
         this.GetComponent<Rigidbody2D>().velocity = force;
     }
@@ -60,6 +60,7 @@ public class BirbScript : MonoBehaviour
     }
 
     public void resetGame(){
+        Debug.Log("Reset");
         isStarted = false;
         //reset position of Birb
         transform.position = new Vector2(-1,0);

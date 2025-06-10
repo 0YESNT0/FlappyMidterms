@@ -6,8 +6,11 @@ public class Trunks : MonoBehaviour
 {
     [SerializeField]private float moveSpeed;
     [SerializeField]float despawnOnXLimit;
-       
-    // Update is called once per frame
+
+    void Start()
+    {
+        BirbScript.Start +=  Despawn;
+    }
     void Update()
     {
         Vector2 position = transform.position;
@@ -15,11 +18,15 @@ public class Trunks : MonoBehaviour
         transform.position = position;
 
         if(transform.position.x <= despawnOnXLimit){
-            Destroy(this);
+            Despawn();
         }
     }
 
     public void SetMoveSpeed(int speed){
         moveSpeed = speed;
+    }
+
+    private void Despawn(){
+        Destroy(this);
     }
 }

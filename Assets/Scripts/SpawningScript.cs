@@ -22,6 +22,7 @@ public class SpawningScript : MonoBehaviour
 
         if(currentSpawnCountdown <= 0){
             //do spawning
+            SpawnTrunk();
             currentSpawnCountdown = spawnInterval;
         }
         currentSpawnCountdown -= Time.deltaTime;
@@ -30,8 +31,10 @@ public class SpawningScript : MonoBehaviour
     private void SpawnTrunk(){        
         int random = Random.Range(0,Trunks.Count()-1);
         Instantiate(Trunks[random],this.transform);
+        Debug.Log("Spawned Trunk");
     }
     private void StartSpawning(){
+        Debug.Log("Start spawn");
         GameStarted = true;
     }
     private void StopSpawning(){
