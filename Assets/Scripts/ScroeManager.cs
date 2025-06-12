@@ -11,7 +11,7 @@ public class ScroeManager : MonoBehaviour
     void Start()
     {
         BirbScript.AddScore += UpdateScore;
-        BirbScript.Dead += ResetScore;
+        MenuScripts.Reset += ResetScore;
     }
 
     private void UpdateScore(){

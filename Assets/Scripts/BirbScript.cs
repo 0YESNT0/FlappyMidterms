@@ -14,7 +14,6 @@ public class BirbScript : MonoBehaviour
     private bool isStarted = false;
     void OnEnable()
     {
-        EnhancedTouchSupport.Enable();
         MenuScripts.Reset += resetGame;
     }
     void OnDisable()
@@ -33,6 +32,7 @@ public class BirbScript : MonoBehaviour
             Jump();
             if(isStarted == false){
                 isStarted = true;
+                this.GetComponentInChildren<Rigidbody2D>().simulated = true;
                 Start?.Invoke();
             }
         }
@@ -63,7 +63,9 @@ public class BirbScript : MonoBehaviour
         Debug.Log("Reset");
         isStarted = false;
         //reset position of Birb
+        this.GetComponentInChildren<Rigidbody2D>().simulated = false;
         transform.position = new Vector2(-1,0);
+        EnhancedTouchSupport.Enable();
     }
 
 }

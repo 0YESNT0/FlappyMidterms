@@ -7,10 +7,12 @@ public class MenuScripts : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject GameOverMenu;
+    [SerializeField] private GameObject Notification;
     public static Action Reset;
     void Start()
     {
-        BirbScript.Dead += GameOver;   
+        BirbScript.Dead += GameOver; 
+        BirbScript.Start += HideNotification;  
     }
     public void StartGame(){
         MainMenu.SetActive(false);
@@ -22,7 +24,12 @@ public class MenuScripts : MonoBehaviour
     }
     public void ResetGame()
     {
-        GameOverMenu.SetActive(false);
         Reset?.Invoke();
+        GameOverMenu.SetActive(false);
+        Notification.SetActive(true);        
+    }
+
+    private void HideNotification(){
+        Notification.SetActive(false);
     }
 }

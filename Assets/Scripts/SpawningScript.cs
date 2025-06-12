@@ -8,7 +8,7 @@ public class SpawningScript : MonoBehaviour
     [SerializeField]private GameObject[] Trunks;    
     [SerializeField]private float movementSpeed = 6;
     [SerializeField]private float spawnInterval = 3;
-    private float currentSpawnCountdown;
+    private float currentSpawnCountdown = 0;
     private bool GameStarted = false;
 
     void OnEnable()
@@ -19,7 +19,7 @@ public class SpawningScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(GameStarted == false) return;
         if(currentSpawnCountdown <= 0){
             //do spawning
             SpawnTrunk();
@@ -35,6 +35,7 @@ public class SpawningScript : MonoBehaviour
     }
     private void StartSpawning(){
         Debug.Log("Start spawn");
+        currentSpawnCountdown = 0;
         GameStarted = true;
     }
     private void StopSpawning(){

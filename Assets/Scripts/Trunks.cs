@@ -7,9 +7,13 @@ public class Trunks : MonoBehaviour
     [SerializeField]private float moveSpeed;
     [SerializeField]float despawnOnXLimit;
 
-    void Start()
-    {
+    void OnEnable(){
         BirbScript.Start +=  Despawn;
+        MenuScripts.Reset += Despawn; 
+    }
+    void OnDisable(){
+        BirbScript.Start -=  Despawn;
+        MenuScripts.Reset -= Despawn; 
     }
     void Update()
     {
@@ -26,7 +30,7 @@ public class Trunks : MonoBehaviour
         moveSpeed = speed;
     }
 
-    private void Despawn(){
-        Destroy(this);
+    private void Despawn(){        
+        Destroy(this.gameObject);
     }
 }
