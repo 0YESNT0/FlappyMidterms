@@ -30,8 +30,7 @@ public class SpawningScript : MonoBehaviour
 
     private void SpawnTrunk(){        
         int random = Random.Range(0,Trunks.Count()-1);
-        Instantiate(Trunks[random],this.transform);
-        Debug.Log("Spawned Trunk");
+        Instantiate(Trunks[random],this.transform);        
     }
     private void StartSpawning(){
         Debug.Log("Start spawn");
